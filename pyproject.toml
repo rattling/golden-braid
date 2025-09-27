@@ -1,0 +1,50 @@
+[project]
+name = "your-repo"
+version = "0.1.0"
+description = "Personal CS/AI/CSE braid: notebooks, scratch, and a FastAPI backend"
+readme = "README.md"
+requires-python = ">=3.12"
+license = {text = "MIT"}
+authors = [{ name = "Your Name" }]
+dependencies = [
+  # Core numerics & plotting
+  "numpy>=2.0",
+  "scipy>=1.14",
+  "matplotlib>=3.9",
+
+  # Graphs (handy for PGM demos and spectral clustering later)
+  "networkx>=3.3",
+
+  # Notebooks
+  "jupyter>=1.0",
+  "ipykernel>=6.29",
+
+  # Web API (for when you promote to an app)
+  "fastapi>=0.114",
+  "uvicorn[standard]>=0.30",
+
+  # Utils
+  "pydantic>=2.8",
+  "rich>=13.7"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3",
+  "pytest-cov>=5.0",
+  "ruff>=0.6",         # linter/formatter
+  "mypy>=1.11",        # optional static typing
+  "black>=24.8",       # if you prefer Black formatting
+]
+pgm = [
+  "pgmpy>=0.1.25"      # optional; you can also roll your own inference
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+# uv-specific conveniences (scripts)
+[tool.uv]
+managed = true
+
